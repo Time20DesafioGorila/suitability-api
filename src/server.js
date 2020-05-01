@@ -1,7 +1,13 @@
 require("dotenv").config();
+const db = require("./config/database");
 const express = require("express");
 
 const server = express();
+
+/**
+ * Importanção as configurações do banco de dados.
+ */
+db.init();
 
 /**
  * Utilizando o express para converter o json em objeto do JS.
