@@ -1,13 +1,12 @@
-const db = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 /**
  * Tabela User da API
  */
-const UserSchema = new mongoose.Schema(
+const UserSchema = new Schema(
     {
         name: String,
         email: String,
-        phone: String,
         password: String,
     },
     {
@@ -15,4 +14,4 @@ const UserSchema = new mongoose.Schema(
     }
 );
 
-module.exports = db.model("User", UserSchema);
+module.exports = model("User", UserSchema);

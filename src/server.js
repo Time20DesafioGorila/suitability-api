@@ -1,8 +1,8 @@
 require("dotenv").config();
 const db = require("./config/database");
 const express = require("express");
-
-const server = express();
+const routes = require("./routes");
+const app = express();
 
 /**
  * Importanção as configurações do banco de dados.
@@ -12,20 +12,15 @@ db.init();
 /**
  * Utilizando o express para converter o json em objeto do JS.
  */
-server.use(express.json());
+app.use(express.json());
 
-server.get("/", (req, res) => {
-    return res.json({
-        app: "Base da API do Desafio Gorila - Mega Hack 2",
-        author: "Time 20",
-        rep_url: "https://github.com/Time20DesafioGorila/suitability-api",
-    });
-});
+app.use(express.json());
+app.use(routes);
 
 /**
  * Rodando o servidor back-end.
  */
-server.listen(process.env.APP_PORT, () => {
+app.listen(process.env.APP_PORT, () => {
     console.log(
         "Servidor backend inicializado com sucesso na porta " +
             process.env.APP_PORT
