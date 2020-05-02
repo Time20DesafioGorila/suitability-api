@@ -5,11 +5,11 @@ const { Schema, model } = require("mongoose");
  */
 const InvestmentSchema = new Schema(
     {
-        type_investment: {
+        type: {
             type: String,
             required: true,
         },
-        name_investment: {
+        name: {
             type: String,
             required: true,
         },
@@ -23,7 +23,7 @@ const InvestmentSchema = new Schema(
         },
         wallet: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Wallet',
+            ref: "Wallet",
             require: true,
         },
     },
