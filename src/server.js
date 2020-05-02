@@ -14,7 +14,9 @@ db.init();
  */
 app.use(express.json());
 
-app.use(express.json());
+/**
+ * Utilizando as rotas da aplicação.
+ */
 app.use(routes);
 
 /**
