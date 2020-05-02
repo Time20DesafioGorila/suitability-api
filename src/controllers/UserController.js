@@ -3,18 +3,18 @@ const User = require("../models/User");
 module.exports = {
     async index(req, res) {
 
-       // const { email } = req.body;
+        // const { email } = req.body;
 
         if (!req.params.id) {
 
             const user = await User.find();
 
-            return res.json({user});
+            return res.json({ user });
         } else {
 
             const user = await User.findOne();
 
-            return res.send(user);
+            return res.json({ user });
         }
 
 
