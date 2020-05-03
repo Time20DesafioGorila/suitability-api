@@ -1,20 +1,17 @@
-const { Schema, model } = require("mongoose");
+const mongoose = require("mongoose");
+const { model, Schema } = require("mongoose");
 
 /**
  * Tabela Investment da API
  */
 const InvestmentSchema = new Schema(
     {
-        type: {
-            type: String,
-            required: true,
-        },
-        name: {
+        name_inv: {
             type: String,
             required: true,
         },
         amount: {
-            type: String,
+            type: Number,
             required: true,
         },
         value: {

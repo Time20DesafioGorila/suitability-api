@@ -5,6 +5,7 @@ const { Schema, model } = require("mongoose");
  */
 const WalletSchema = new Schema(
     {
+        points: Number,
         perfil: String,
         user: {
             type: mongoose.Schema.Types.ObjectId,
@@ -14,10 +15,6 @@ const WalletSchema = new Schema(
         investment: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Investment',
-        },
-        ranking: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Ranking',
         },
     },
 

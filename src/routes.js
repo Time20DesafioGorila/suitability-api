@@ -5,8 +5,15 @@ const routes = express.Router();
  * Rota Users
  */
 const UserController = require("./controllers/UserController");
+const InvestmentController = require("./controllers/InvestmentController");
+
 routes.get("/users", UserController.index);
 routes.post("/users", UserController.store);
+
+routes.post("/investment/:id", InvestmentController.store);
+
+
+
 
 /**
  * Rota "/"
