@@ -4,17 +4,18 @@ const Wallet = require("../models/Wallet");
 
 module.exports = {
     async index(req, res) {
-        if (!req.headers.wallet_id) {
+        if (!req.headers.user_id) {
             const investments = await Investment.find();
             return res.json({ investments });
         } else {
-            const investments = await Investment.findById(req.headers.wallet_id);
-            return res.json({ investments });
+            const investment = await Investment.find({ user_id: req.headers.user_id }).populate(['wallet_id', 'user_id']);
+            return res.json({ investment });
         }
     },
 
     async store(req, res) {
         const { wallet_id } = req.headers;
+        const { user_id } = req.headers;
         const { name_inv, amount, value } = req.body;
 
         // Validando a carteira
@@ -32,6 +33,7 @@ module.exports = {
             amount: amount,
             value: value,
             wallet_id: wallet_id,
+            user_id: user_id
         });
 
         /* console.log(user); */

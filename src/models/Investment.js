@@ -23,6 +23,11 @@ const InvestmentSchema = new Schema(
             ref: "Wallet",
             require: true,
         },
+        user_id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
+            require: true,
+        },
     },
 
     {

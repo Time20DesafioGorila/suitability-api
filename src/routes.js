@@ -30,9 +30,10 @@ routes.delete("/investment/:idInvest", InvestmentController.delete);
  * Rota Wallet
  */
 const WalletController = require("./controllers/WalletController");
-routes.post("/wallet/:idUser", WalletController.store);
-routes.get("/wallet/:idUser", WalletController.index);
+routes.post("/wallet", WalletController.store);
 routes.get("/wallet", WalletController.index);
+routes.put("/wallet/:idWallet", WalletController.update);
+routes.delete("/wallet/:idWallet", WalletController.delete);
 
 
 /**
