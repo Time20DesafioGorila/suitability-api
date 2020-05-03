@@ -4,11 +4,11 @@ const Wallet = require("../models/Wallet");
 
 module.exports = {
     async index(req, res) {
-        if (!req.params.user_id) {
+        if (!req.headers.wallet_id) {
             const investments = await Investment.find();
             return res.json({ investments });
         } else {
-            const investments = await Investment.find();
+            const investments = await Investment.findById(req.headers.wallet_id);
             return res.json({ investments });
         }
     },
@@ -33,6 +33,25 @@ module.exports = {
             value: value,
             wallet_id: wallet_id,
         });
+
+        /* console.log(user); */
+        return res.json({ investment });
+    },
+
+    async update(req, res) {
+        const { id } = req.params;
+        const { name_inv, amount, value } = req.body;
+
+
+        if (!name_inv) throw "Nome do investimento não informado ou inválido!";
+        if (!value) throw "Valor não informado ou inválido!";
+
+        const investment = await Investment.findByIdAndUpdate(id,
+            {
+                name_inv: name_inv,
+                amount: amount,
+                value: value,
+            }, { new: true });
 
         /* console.log(user); */
         return res.json({ investment });

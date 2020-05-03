@@ -19,6 +19,9 @@ routes.post("/users", UserController.store);
  */
 const InvestmentController = require("./controllers/InvestmentController");
 routes.post("/investment", InvestmentController.store);
+routes.get("/investment", InvestmentController.index);
+routes.put("/investment/:id/wallet", InvestmentController.update);
+
 
 /**
  * Rota Wallet
