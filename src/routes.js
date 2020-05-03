@@ -4,8 +4,8 @@ const routes = express.Router();
 /**
  * Rota Session
  */
-const SessionController = require("./controllers/SessionContoller");
-routes.post("/sessions", SessionController.store);
+const SessionController = require("./controllers/SessionController");
+routes.post("/session", SessionController.store);
 
 /**
  * Rota Users
@@ -31,6 +31,9 @@ routes.delete("/investment/:idInvest", InvestmentController.delete);
  */
 const WalletController = require("./controllers/WalletController");
 routes.post("/wallet/:idUser", WalletController.store);
+routes.get("/wallet/:idUser", WalletController.index);
+routes.get("/wallet", WalletController.index);
+
 
 /**
  * Rota "/"
