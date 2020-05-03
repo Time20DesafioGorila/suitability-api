@@ -6,11 +6,15 @@ const routes = express.Router();
  */
 const UserController = require("./controllers/UserController");
 const InvestmentController = require("./controllers/InvestmentController");
+const WalletController = require("./controllers/WalletController");
 
 routes.get("/users", UserController.index);
 routes.post("/users", UserController.store);
 
 routes.post("/investment/:id", InvestmentController.store);
+
+routes.post("/wallet/:idUser", WalletController.store);
+
 
 
 

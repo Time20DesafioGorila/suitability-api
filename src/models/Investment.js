@@ -18,7 +18,7 @@ const InvestmentSchema = new Schema(
             type: Number,
             required: true,
         },
-        wallet: {
+        wallet_id: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Wallet",
             require: true,

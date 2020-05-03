@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const { Schema, model } = require("mongoose");
 
 /**
@@ -7,14 +8,10 @@ const WalletSchema = new Schema(
     {
         points: Number,
         perfil: String,
-        user: {
+        user_id: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User',
             require: true,
-        },
-        investment: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Investment',
         },
     },
 
