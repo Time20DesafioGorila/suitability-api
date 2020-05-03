@@ -13,6 +13,7 @@ routes.post("/sessions", SessionController.store);
 const UserController = require("./controllers/UserController");
 routes.get("/users", UserController.index);
 routes.post("/users", UserController.store);
+routes.put("/users/:idUser", UserController.update);
 
 /**
  * Rota Investiment
@@ -20,7 +21,9 @@ routes.post("/users", UserController.store);
 const InvestmentController = require("./controllers/InvestmentController");
 routes.post("/investment", InvestmentController.store);
 routes.get("/investment", InvestmentController.index);
-routes.put("/investment/:id/wallet", InvestmentController.update);
+routes.put("/investment/:idInvest", InvestmentController.update);
+routes.delete("/investment/:idInvest", InvestmentController.delete);
+
 
 
 /**

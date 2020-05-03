@@ -39,14 +39,14 @@ module.exports = {
     },
 
     async update(req, res) {
-        const { id } = req.params;
+        const { idInvest } = req.params;
         const { name_inv, amount, value } = req.body;
 
 
         if (!name_inv) throw "Nome do investimento não informado ou inválido!";
         if (!value) throw "Valor não informado ou inválido!";
 
-        const investment = await Investment.findByIdAndUpdate(id,
+        const investment = await Investment.findByIdAndUpdate(idInvest,
             {
                 name_inv: name_inv,
                 amount: amount,
@@ -55,5 +55,20 @@ module.exports = {
 
         /* console.log(user); */
         return res.json({ investment });
+    },
+
+    async delete(req, res) {
+        const { idInvest } = req.params;
+
+        const investment = await Investment.findById(idInvest);
+
+        if (!investment) {
+            return res.status(400).json({ error: "Esse investimento não existe." });
+        }
+
+        await Investment.findByIdAndRemove(idInvest);
+
+        /* console.log(user); */
+        return res.send();
     },
 };
