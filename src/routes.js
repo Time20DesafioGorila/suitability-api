@@ -33,6 +33,8 @@ routes.get("/wallet/:idUser", WalletController.index);
 routes.get("/wallet", WalletController.index);
 
 
+const RankingController = require('./controllers/RankingController');
+routes.get("/ranking", RankingController.index);
 
 
 const SuitabilityController = require('./controllers/SuitabilityController');
