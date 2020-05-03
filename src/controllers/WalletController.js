@@ -1,4 +1,5 @@
 const Wallet = require("../models/Wallet");
+const User = require("../models/User");
 
 module.exports = {
     async index(req, res) {
@@ -21,6 +22,13 @@ module.exports = {
     async store(req, res) {
         const { idUser } = req.params;
         const { points, perfil } = req.body;
+        
+        // Validando o usuário
+        const user = await User.findById(idUser);
+
+        if (!user) {
+            return res.status(400).json({ error: "O usuaŕio não existe." });
+        }
 
         if (!perfil) throw "Nome do perfil não informado ou inválido!";
 

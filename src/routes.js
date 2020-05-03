@@ -11,7 +11,7 @@ const WalletController = require("./controllers/WalletController");
 routes.get("/users", UserController.index);
 routes.post("/users", UserController.store);
 
-routes.post("/investment/:id", InvestmentController.store);
+routes.post("/investment", InvestmentController.store);
 
 routes.post("/wallet/:idUser", WalletController.store);
 

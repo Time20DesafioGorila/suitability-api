@@ -31,7 +31,7 @@ module.exports = {
             name_inv: name_inv,
             amount: amount,
             value: value,
-            wallet: wallet_id,
+            wallet_id: wallet_id,
         });
 
         /* console.log(user); */
