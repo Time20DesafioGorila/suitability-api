@@ -13,6 +13,7 @@ module.exports = {
             connectTimeoutMS: 10000,
             family: 4,
             useUnifiedTopology: true,
+            useFindAndModify: false,
         };
 
         db.connect(
