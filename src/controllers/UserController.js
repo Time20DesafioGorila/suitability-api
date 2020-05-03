@@ -30,17 +30,14 @@ module.exports = {
     },
 
     async store(req, res) {
-        const { name, email, phone, password } = req.body;
+        const { email } = req.body;
 
-        if (!name) throw "Nome não informado ou inválido!";
-        if (!email) throw "E-mail não informado ou inválido!";
+        if (await User.findOne({ email }))
+            return response.status(400).send({ error: 'Identidade já cadastrada' });
 
-        const user = await User.create({
-            name: name,
-            email: email,
-            phone: phone,
-            password: password,
-        });
+        const user = await User.create(req.body);
+
+        user.password = undefined;
 
         /* console.log(user); */
         return res.json(user);
