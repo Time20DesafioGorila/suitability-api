@@ -24,8 +24,6 @@ routes.get("/investment", InvestmentController.index);
 routes.put("/investment/:idInvest", InvestmentController.update);
 routes.delete("/investment/:idInvest", InvestmentController.delete);
 
-
-
 /**
  * Rota Wallet
  */
@@ -35,6 +33,10 @@ routes.get("/wallet/:idUser", WalletController.index);
 routes.get("/wallet", WalletController.index);
 
 
+
+
+const SuitabilityController = require('./controllers/SuitabilityController');
+routes.post('/suitability', SuitabilityController.store);
 /**
  * Rota "/"
  */
