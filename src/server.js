@@ -1,6 +1,6 @@
 require("dotenv").config();
-const helmet = require('helmet');
-const cors = require("cors")
+const helmet = require("helmet");
+const cors = require("cors");
 const db = require("./config/database");
 const express = require("express");
 const routes = require("./routes");
@@ -22,7 +22,6 @@ app.use(cors());
  * Utilizando o express para converter o json em objeto do JS.
  */
 app.use(express.json());
-
 
 /**
  * Utilizando as rotas da aplicação.

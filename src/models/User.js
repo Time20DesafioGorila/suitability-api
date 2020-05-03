@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const bcrypt = require('bcryptjs');
+const bcrypt = require("bcryptjs");
 
 /**
  * Tabela User da API
@@ -26,7 +26,7 @@ const UserSchema = new Schema(
     }
 );
 
-UserSchema.pre('save', async function (next) {
+UserSchema.pre("save", async function (next) {
     const hash = await bcrypt.hash(this.password, 10);
     this.password = hash;
 
