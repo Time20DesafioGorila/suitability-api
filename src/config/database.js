@@ -16,13 +16,15 @@ module.exports = {
             useFindAndModify: false,
         };
 
+        const {DB_USER, DB_PASS, DB_HOST, DB_NAME, DB_URL } = process.env;
+        const url = DB_URL || `mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority`; 
         db.connect(
-            `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@hackershawee-ws5ib.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
+            url,
             dbOptions
         );
 
         db.connection.on("connected", () => {
-            console.log("MONGODB conectado com sucesso!");
+            console.log(`MONGODB conectado com sucesso!\nurl: ${url}`);
         });
 
         db.connection.on("err", (err) => {
