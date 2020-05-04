@@ -6,6 +6,9 @@
     "repository": "git@github.com:Time20DesafioGorila/suitability-api.git",
     "author": "Time 20",
     "license": "MIT",
+    "engines": {
+        "node": "14.1.0"
+    },
     "scripts": {
         "start": "node src/server.js",
         "dev": "nodemon src/server.js"
