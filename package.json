@@ -2,13 +2,10 @@
     "name": "suitability-api",
     "version": "1.0.0",
     "description": "API do desafio da Gorila - Mega Hack 2",
-    "main": "server.js",
+    "main": "index.js",
     "repository": "git@github.com:Time20DesafioGorila/suitability-api.git",
     "author": "Time 20",
     "license": "MIT",
-    "engines": {
-        "node": "12.16.2"
-    },
     "scripts": {
         "start": "node src/server.js",
         "dev": "nodemon src/server.js"
