@@ -63,20 +63,20 @@ module.exports = {
         if(points <= 14){
             return {
                 points,
-                'profile': 'CONSERVADOR'
+                'profile': 'conservador'
             }
         }
 
         if(points >= 36){
             return {
                 points,
-                'profile': 'ARROJADO'
+                'profile': 'arrojado'
             }
         }
 
         return {
             points,
-            'profile': 'MODERADO'
+            'profile': 'moderado'
         }
     }
 }

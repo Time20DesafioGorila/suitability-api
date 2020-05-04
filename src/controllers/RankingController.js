@@ -6,7 +6,7 @@ module.exports = {
 
         if(!perfil) throw 'Perfil não encontrado.'
 
-        perfil = perfil.toUpperCase();
+        perfil = perfil.toLowerCase();
 
         const wallets = await Wallet.find({perfil}).sort({points:'desc'}).limit(limit);
 
