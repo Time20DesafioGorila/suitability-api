@@ -1,6 +1,5 @@
 require("dotenv").config();
 const helmet = require("helmet");
-const cors = require("cors");
 const db = require("./config/database");
 const express = require("express");
 const routes = require("./routes");
@@ -15,8 +14,6 @@ db.init();
  * Helmet para segurança genérica
  */
 app.use(helmet());
-
-app.use(cors());
 
 /**
  * Utilizando o express para converter o json em objeto do JS.
