@@ -31,7 +31,7 @@ app.use(routes);
 /**
  * Rodando o servidor back-end.
  */
-app.listen(process.env.APP_PORT, () => {
+app.listen(process.env.APP_PORT || 3333, () => {
     console.log(
         "Servidor backend inicializado com sucesso na porta " +
             process.env.APP_PORT
