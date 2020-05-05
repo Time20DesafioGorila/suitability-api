@@ -18,6 +18,10 @@ const InvestmentSchema = new Schema(
             type: Number,
             required: true,
         },
+        date: {
+            type: String,
+            required: true,
+        },
         wallet_id: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Wallet",
