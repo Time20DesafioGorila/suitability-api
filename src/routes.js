@@ -1,6 +1,21 @@
+require("dotenv").config();
 const express = require("express");
 const routes = express.Router();
+const cors = require("cors");
 
+/**
+ * Configuração do CORS
+ */
+var whitelist = [process.env.WHITELIST1, process.env.WHITELIST2];
+var corsOptions = {
+    origin: function (origin, callback) {
+        if (whitelist.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
+};
 /**
  * Rota Session
  */
@@ -11,7 +26,7 @@ routes.post("/session", SessionController.store);
  * Rota Users
  */
 const UserController = require("./controllers/UserController");
-routes.get("/users", UserController.index);
+routes.get("/users", cors(corsOptions), UserController.index);
 routes.post("/users", UserController.store);
 routes.put("/users/:idUser", UserController.update);
 
@@ -19,8 +34,8 @@ routes.put("/users/:idUser", UserController.update);
  * Rota Investiment
  */
 const InvestmentController = require("./controllers/InvestmentController");
+routes.get("/investment", cors(corsOptions), InvestmentController.index);
 routes.post("/investment", InvestmentController.store);
-routes.get("/investment", InvestmentController.index);
 routes.put("/investment/:idInvest", InvestmentController.update);
 routes.delete("/investment/:idInvest", InvestmentController.delete);
 
@@ -28,22 +43,20 @@ routes.delete("/investment/:idInvest", InvestmentController.delete);
  * Rota Wallet
  */
 const WalletController = require("./controllers/WalletController");
+routes.get("/wallet", cors(corsOptions), WalletController.index);
 routes.post("/wallet", WalletController.store);
-routes.get("/wallet", WalletController.index);
 routes.put("/wallet/:idWallet", WalletController.update);
 routes.delete("/wallet/:idWallet", WalletController.delete);
 
+const RankingController = require("./controllers/RankingController");
+routes.get("/ranking", cors(corsOptions), RankingController.index);
 
-const RankingController = require('./controllers/RankingController');
-routes.get("/ranking", RankingController.index);
-
-
-const SuitabilityController = require('./controllers/SuitabilityController');
-routes.post('/suitability', SuitabilityController.store);
+const SuitabilityController = require("./controllers/SuitabilityController");
+routes.post("/suitability", SuitabilityController.store);
 /**
  * Rota "/"
  */
-routes.get("/", (req, res) => {
+routes.get("/", cors(corsOptions), (req, res) => {
     return res.json({
         app: "Base da API do Desafio Gorila - Mega Hack 2",
         author: "Time 20",
