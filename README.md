@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Be The Hero" title="#delicinha" src="https://raw.githubusercontent.com/Time20DesafioGorila/frontend/master/src/assets/youinvest.png" width="350px" />
+    <img alt="Youinvest" title="#delicinha" src="https://raw.githubusercontent.com/Time20DesafioGorila/frontend/master/src/assets/youinvest.png" width="350px" />
 </h1>
 
 <h2 align="center">
@@ -8,7 +8,8 @@
 
 ## 💻 Project
 
-<p></p>
+<p>Competição de Carteiras que terá como categoria perfil de investidor do usuário.<br />
+A disputa será baseada em um ranking mensal através da carteira com melhor performance.</p>
 
 ## 💻 Technology
 
